@@ -1,0 +1,55 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  font: 100% Arial, Helvetica, sans-serif;
+  color: #ffffff;
+  background-color: #000000;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn {
+  width: 200px;
+  background-color: #000000;
+  color: #ffffff;
+  border: #ffffff 4px solid;
+  cursor: pointer;
+  padding: 1rem;
+  margin-block-start: 2rem;
+  text-align: center;
+}
+.btn.color_change {
+  transition: background-color 550ms;
+}
+.btn.color_change:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+.btn.scale {
+  transition: transform 550ms, background-color 450ms;
+  transition-delay: 0, 100ms;
+}
+.btn.scale:hover {
+  transform: scale(1.2);
+  background-color: #ffffff;
+  color: #000000;
+}
+.btn.translate {
+  transition: transform 550ms, background-color 450ms;
+  transition-delay: 0, 100ms;
+}
+.btn.translate:hover {
+  transform: translateX(3rem);
+  background-color: #ffffff;
+  color: #000000;
+}

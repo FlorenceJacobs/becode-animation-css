@@ -1,0 +1,66 @@
+$frst-color: #000000;
+$scnd-color: #ffffff;
+$font-stack: Arial, Helvetica, sans-serif;
+$font-color: #ffffff;
+$clr-btn-start: rgba(1, 28, 55, 0);
+$clr-btn-end: rgba(1, 28, 55, 1);
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+@mixin border {
+    border: #ffffff 4px solid;
+}
+
+body {
+    font: 100% $font-stack;
+    color: $font-color;
+    background-color: $frst-color;
+}
+
+.container {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn {
+    width: 200px;
+    background-color: $frst-color;
+    color: $font-color;
+    @include border;
+    cursor: pointer;
+    padding: 1rem;
+    margin-block-start: 2rem;
+    text-align: center;
+    &.color_change {
+        transition: background-color 550ms;
+        &:hover {
+            background-color: $scnd-color;
+            color: $frst-color;
+        }
+    }
+    &.scale {
+        transition: transform 550ms, background-color 450ms;
+        transition-delay: 0, 100ms;
+        &:hover {
+            transform: scale(1.20);
+            background-color: $scnd-color;
+            color: $frst-color;
+        }
+    }
+    &.translate {
+        transition: transform 550ms, background-color 450ms;
+        transition-delay: 0, 100ms;
+        &:hover {
+            transform: translateX(3rem);
+            background-color: $scnd-color;
+            color: $frst-color; 
+        }
+    }
+}
