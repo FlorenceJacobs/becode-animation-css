@@ -2,6 +2,7 @@ $frst-color: #ffffff;
 $scnd-color: #e94c3d;
 $frst-font: 'Montserrat', sans-serif;
 $scnd-font: 'Open Sans', sans-serif;
+$thrd-font: 'Quicksand', sans-serif;
 $font-color: #727272;
 
 *,
@@ -18,7 +19,9 @@ body {
     background-color: #f2f2f2;
 }
 
+/* conteneur principal pour :hover */
 .card {
+    position:relative;
     width: 370px;
     margin: 2rem auto;
     box-shadow: 0px 1px 8px 0px rgba(112,112,112,1);
@@ -28,24 +31,102 @@ body {
             box-shadow: 1px 2px 12px 1px rgba(112,112,112,1);
         }
         &:hover .img_card {
-            background-size: 400px 300px;
-            background-position: -15px -15px;
+            background-size: 140%;
         }
         &:hover .voile_blanc {
             background-color: rgba(255, 255, 255, 0.514);
         }
+        &:hover .block_mouvant {
+            transform: translateY(-128px);
+        }
 }
 
+/* Partie supérieure - image */
 .img_card {
     width: 370px;
-    height: 270px;
+    height: 320px;
     background: url(../img/pinkindiangirl.jpg) no-repeat;
-    background-size: 370px 270px;
-    background-position: 0 0;
+    background-size: 130%;
     transition: all 500ms ease-in-out;
 }
 
 .voile_blanc {
     transition: background-color 500ms ease-in-out;
     height: 370px;
+}
+
+@mixin card_header_font {
+    text-transform:uppercase;
+    background-color: $scnd-color;
+    color: $frst-color;
+    text-align:center;
+    font-weight: bold;
+    font-family: $scnd-font;
+}
+
+.date {
+    @include card_header_font;
+    position:absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:60px;
+    width: 60px;
+    right: 20px;
+    margin-top: 20px;
+    border-radius: 100%;
+}
+
+.photo {
+    @include card_header_font;
+    display: inline-block;
+    padding: 0.5rem;
+    position:absolute;
+    margin-top: -35px;
+}
+/* Partie inférieure - contenu */
+
+h1 {
+    color: black;
+    text-transform: uppercase;
+    font-family: $thrd-font;
+}
+
+h2 {
+    color: $scnd-color;
+    font-family: $thrd-font;
+    font-size: 110%;
+}
+
+.contenu {
+    position:relative;
+    z-index: 2;
+    background-color: $frst-color;
+    & .contenu_header {
+        line-height: 2.5rem;
+        padding:2rem 2rem 1rem 2rem;
+        background-color: $frst-color;
+        width: 306px;
+    }
+    & .extrait {
+        position: relative;
+        padding-right: 2rem;
+        padding-left:2rem;
+        line-height: 1.5rem;
+        text-align: justify;
+        background-color: $frst-color;
+    }
+}
+
+.block_mouvant {
+    position: absolute;
+    z-index: 1;
+    transition: transform 500ms ease-in-out;
+}
+
+.comments {
+    padding:2rem;
+        & :first-of-type {
+        padding-right: 0.5rem;
+        }
 }
